@@ -1,0 +1,11 @@
+[project]
+name = "numerical-analysis"
+version = "0.0.1"
+dependencies = [
+  "numpy",
+  "matplotlib",
+  "tabulate",
+]
+
+[tool.black]
+line-length = 120
