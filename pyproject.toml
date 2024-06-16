@@ -1,5 +1,5 @@
 [project]
-name = "numerical-analysis"
+name = "numerical-methods"
 version = "0.0.1"
 dependencies = [
   "numpy",
