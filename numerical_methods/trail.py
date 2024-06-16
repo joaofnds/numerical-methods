@@ -36,7 +36,11 @@ class Trail:
 
     @property
     def result(self):
+        assert len(self) > 0
         return self[-1][0]
+
+    def relative_error(self, true_root):
+        return abs(self.result - true_root) / abs(true_root)
 
     def plot(self, bounds=None):
         plt.subplots()
