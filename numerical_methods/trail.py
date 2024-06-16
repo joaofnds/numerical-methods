@@ -38,16 +38,16 @@ class Trail:
     def result(self):
         return self[-1][0]
 
-    def plot(self):
-        colors = cm.viridis(np.linspace(0, 1, len(self)))
+    def plot(self, bounds=None):
         plt.subplots()
 
-        (a, b) = self.bounds
+        (a, b) = self.bounds if bounds is None else bounds
         pad = (b - a) * 0.1
         x = np.arange(a - pad, b + pad, 0.01)
 
         plt.plot(x, self.f(x), label="f(x)")
 
+        colors = cm.viridis(np.linspace(0, 1, len(self)))
         for i, color in zip(range(1, len(self)), colors):
             [(x1, y1), (x2, y2)] = self.points(i)
 
@@ -60,3 +60,4 @@ class Trail:
 
         plt.grid(True)
         plt.legend()
+        plt.xlim(x.min(), x.max())
