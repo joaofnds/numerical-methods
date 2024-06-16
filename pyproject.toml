@@ -1,11 +1,10 @@
 [project]
 name = "numerical-methods"
 version = "0.0.1"
-dependencies = [
-  "numpy",
-  "matplotlib",
-  "tabulate",
-]
+dependencies = ["ruff", "numpy", "matplotlib", "tabulate"]
 
-[tool.black]
+[tool.ruff]
 line-length = 120
+
+[tool.ruff.lint]
+extend-select = ["I"]
