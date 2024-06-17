@@ -63,5 +63,5 @@ class Trail:
                 plt.scatter([x1, x2], [y1, y2], color=color)
 
         plt.grid(True)
-        plt.legend()
+        plt.legend(bbox_to_anchor=(1, 1), loc="upper left")
         plt.xlim(x.min(), x.max())
