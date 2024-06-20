@@ -5,6 +5,7 @@ python = "3.12.3"
 _.python.venv = ".venv"
 
 [tasks]
+setup = ['uv venv', 'uv pip install .']
 format = "python -m ruff format numerical_methods"
 lint = "python -m ruff check --fix numerical_methods"
 test = "python -m unittest discover -s numerical_methods -p '*_test.py'"
