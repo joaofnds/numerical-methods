@@ -1,10 +1,8 @@
 import numpy as np
 
 
-def gaussian_elimination(A, b):
-    Ab = np.hstack(
-        (A, np.array(b, dtype=np.float64).reshape(-1, 1)),
-    )
+def gaussian_elimination(A: np.ndarray, b: np.ndarray):
+    Ab = np.hstack((A, b.reshape(-1, 1)))
     nrows = len(b)
 
     # forward elimination
@@ -21,4 +19,4 @@ def gaussian_elimination(A, b):
     for i in range(nrows - 1, -1, -1):
         x[i] = (Ab[i, nrows] - np.dot(Ab[i, i + 1 : nrows], x[i + 1 : nrows])) / Ab[i, i]
 
-    return x.tolist()
+    return x
