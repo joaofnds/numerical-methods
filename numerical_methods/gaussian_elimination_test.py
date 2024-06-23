@@ -33,3 +33,18 @@ class TestGaussianElimination(unittest.TestCase):
         )
 
         assert np.allclose(result, [3.126, 1.712, -1.192], atol=1e-3)
+
+    def test_third_exercise(self):
+        result = gaussian_elimination(
+            A=np.array(
+                [
+                    [1.5, 5.4, 3.3],
+                    [4.2, 2.3, 4.5],
+                    [2.7, 5.7, 7.8],
+                ],
+            ),
+            b=np.array([10, 11.7, 8.9]),
+            complete_pivoting=True,
+        )
+
+        assert np.allclose(result, [3.126, 1.712, -1.192], atol=1e-3)
