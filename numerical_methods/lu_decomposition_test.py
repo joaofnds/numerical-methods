@@ -26,7 +26,6 @@ class TestLUDecomposition(unittest.TestCase):
                 [4 / 3, 1, 1],
             ],
         )
-
         assert np.allclose(
             U,
             [
@@ -36,7 +35,5 @@ class TestLUDecomposition(unittest.TestCase):
             ],
         )
 
-        assert np.allclose(
-            solve_lu(L, U, b),
-            np.linalg.solve(A, b),
-        )
+        assert np.allclose(L @ U, A)
+        assert np.allclose(solve_lu(A, b), np.linalg.solve(A, b))

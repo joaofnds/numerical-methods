@@ -14,7 +14,9 @@ def lu_decomposition(A: np.ndarray):
     return L, U
 
 
-def solve_lu(L: np.ndarray, U: np.ndarray, b: np.ndarray):
+def solve_lu(A: np.ndarray, b: np.ndarray):
+    L, U = lu_decomposition(A)
+
     # forward substitution (Ly = b)
     y = np.zeros(len(L))
     for i in range(len(y)):
