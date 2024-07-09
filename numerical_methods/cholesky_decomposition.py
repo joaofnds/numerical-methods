@@ -1,9 +1,11 @@
 import numpy as np
 
+from numerical_methods.partial_pivoting import partial_pivoting as do_partial_pivoting
+
 
 def cholesky_decomposition(A: np.ndarray):
-    assert np.allclose(A, A.T)
-    assert np.all(np.linalg.eigvals(A) > 0)
+    assert np.allclose(A, A.T), "matrix must be symmetric"
+    assert np.all(np.linalg.eigvals(A) > 0), "matrix must be positive definite"
 
     L = np.zeros_like(A, dtype=np.float64)
 
@@ -16,7 +18,10 @@ def cholesky_decomposition(A: np.ndarray):
     return L
 
 
-def solve_cholesky(A: np.ndarray, b: np.ndarray):
+def solve_cholesky(A: np.ndarray, b: np.ndarray, partial_pivoting=False):
+    if partial_pivoting:
+        P, A, b = do_partial_pivoting(A, b)
+
     L = cholesky_decomposition(A)
 
     # forward substitution (Ly = b)
