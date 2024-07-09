@@ -2,6 +2,9 @@ import numpy as np
 
 
 def lu_decomposition(A: np.ndarray):
+    for i in range(1, len(A) + 1):
+        assert np.linalg.det(A[:i, :i]) != 0, "matrix is singular"
+
     L = np.eye(len(A))
     U = np.zeros_like(L)
 

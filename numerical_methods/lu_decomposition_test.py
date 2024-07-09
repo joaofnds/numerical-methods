@@ -2,6 +2,7 @@ import unittest
 
 import numpy as np
 
+from lib.assert_raises import assert_raises
 from numerical_methods.lu_decomposition import lu_decomposition, solve_lu
 
 
@@ -16,7 +17,7 @@ class TestLUDecomposition(unittest.TestCase):
             dtype=np.float64,
         )
 
-        with self.assertRaises(ZeroDivisionError):
+        with assert_raises(AssertionError, "matrix is singular"):
             lu_decomposition(A1)
 
     def test_first_exercise(self):

@@ -9,7 +9,9 @@ setup = ['uv venv', 'uv pip install .']
 format = "python -m ruff format numerical_methods"
 lint = "python -m ruff check --fix numerical_methods"
 test = "python -m unittest discover -s numerical_methods -p '*_test.py'"
-clean = ["rm -rf .venv .ruff_cache **/__pycache__ *.egg-info dist"]
+clean = [
+  "rm -rf .venv .ruff_cache __pycache__ */__pycache__ build *.egg-info dist",
+]
 
 [tasks.check]
 depends = ["format", "lint", "test"]
