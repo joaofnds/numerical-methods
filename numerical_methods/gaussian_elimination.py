@@ -1,22 +1,14 @@
 import numpy as np
 
 
-def gaussian_elimination(A: np.ndarray, b: np.ndarray, complete_pivoting=False):
+def gaussian_elimination(A: np.ndarray, b: np.ndarray, partial_pivoting=False):
     Ab = np.column_stack((A, b))
-    nrows, ncols = Ab.shape
+    nrows = Ab.shape[0]
     order = np.arange(nrows)
 
     # forward elimination
     for row in range(nrows):
-        if complete_pivoting:
-            max_idx = np.unravel_index(np.abs(Ab[row:, row : ncols - 1]).argmax(), Ab[row:, row : ncols - 1].shape)
-            max_row, max_col = max_idx[0] + row, max_idx[1] + row
-
-            Ab[[row, max_row]] = Ab[[max_row, row]]
-            Ab[:, [row, max_col]] = Ab[:, [max_col, row]]
-            order[[row, max_col]] = order[[max_col, row]]
-
-        else:
+        if partial_pivoting:
             max_row = abs(Ab[row:, row]).argmax() + row
             Ab[[row, max_row]] = Ab[[max_row, row]]
 

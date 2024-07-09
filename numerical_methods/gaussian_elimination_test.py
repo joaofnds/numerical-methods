@@ -44,7 +44,7 @@ class TestGaussianElimination(unittest.TestCase):
                 ],
             ),
             b=np.array([10, 11.7, 8.9]),
-            complete_pivoting=True,
+            partial_pivoting=True,
         )
 
         assert np.allclose(result, [3.126, 1.712, -1.192], atol=1e-3)
