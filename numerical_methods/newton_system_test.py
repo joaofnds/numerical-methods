@@ -2,7 +2,7 @@ from unittest import TestCase, skip
 
 import jax.numpy as jnp
 
-from numerical_methods.newthon_system import newton_system
+from numerical_methods.newton_system import newton_system
 
 
 class TestNewtonSystem(TestCase):
