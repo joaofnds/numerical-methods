@@ -13,6 +13,9 @@ def gaussian_elimination(A: np.ndarray, b: np.ndarray, partial_pivoting=False):
             Ab[[row, max_row]] = Ab[[max_row, row]]
 
         for k in range(row + 1, nrows):
+            if Ab[row, row] == 0:
+                raise ZeroDivisionError()
+
             factor = Ab[k, row] / Ab[row, row]
             Ab[k] -= factor * Ab[row]
 

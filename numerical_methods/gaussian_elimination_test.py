@@ -6,6 +6,20 @@ from numerical_methods.gaussian_elimination import gaussian_elimination
 
 
 class TestGaussianElimination(unittest.TestCase):
+    def test_zero_division_error(self):
+        A1 = np.array(
+            [
+                [0, 3, 2],
+                [1, 4, 3],
+                [0, 2, 5],
+            ],
+            dtype=np.float64,
+        )
+        b1 = np.array([5, 6, 7], dtype=np.float64)
+
+        with self.assertRaises(ZeroDivisionError):
+            gaussian_elimination(A1, b1)
+
     def test_first_exercise(self):
         result = gaussian_elimination(
             A=np.array(
