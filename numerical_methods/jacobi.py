@@ -8,7 +8,6 @@ def jacobi(A: np.ndarray, b: np.ndarray, x0: np.ndarray, tol: float = None, max_
     D = np.diag(A.diagonal())
     D_inv = np.linalg.inv(D)
     U = np.triu(A, 1)
-    assert np.allclose(A, L + D + U)
 
     x = x0.copy()
 
