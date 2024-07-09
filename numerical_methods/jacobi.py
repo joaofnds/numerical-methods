@@ -1,10 +1,12 @@
 import numpy as np
 
+from lib.diagonally_dominant import diagonally_dominant
 from numerical_methods.gauss_trail import GaussTrail
 
 
 def jacobi(A: np.ndarray, b: np.ndarray, x0: np.ndarray, tol: float = None, max_iter: int = 1000):
-    assert np.all(np.linalg.eigvals(A) > 0)
+    # assert np.abs(np.max(np.linalg.eigvals(A))) < 1, "matrix A must be convergent"
+    assert diagonally_dominant(A), "matrix A must be diagonally dominant"
 
     L = np.tril(A, -1)
     D = np.diag(A.diagonal())

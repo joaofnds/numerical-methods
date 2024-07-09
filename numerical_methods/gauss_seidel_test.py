@@ -16,8 +16,8 @@ class TestGaussSeidel(unittest.TestCase):
         )
         b = np.array([11, 13], dtype=np.float64)
 
-        x = gauss_seidel(A, b, max_iter=5)
-        assert np.allclose(x, [0.8122, -0.6650], atol=1e-4)
+        trail = gauss_seidel(A, b, max_iter=5)
+        assert np.allclose(trail.result, [0.8122, -0.6650], atol=1e-4)
 
     def test_wikipedia_second_example(self):
         A = np.array(
@@ -31,5 +31,5 @@ class TestGaussSeidel(unittest.TestCase):
         )
         b = np.array([6, 25, -11, 15], dtype=np.float64)
 
-        x = gauss_seidel(A, b, max_iter=6)
-        assert np.allclose(x, [1, 2, -1, 1])
+        trail = gauss_seidel(A, b, max_iter=6)
+        assert np.allclose(trail.result, [1, 2, -1, 1])
