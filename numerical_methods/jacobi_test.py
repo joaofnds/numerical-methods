@@ -11,4 +11,5 @@ class TestJacobi(unittest.TestCase):
         b = [11, 13]
         x0 = [1, 1]
 
-        assert np.allclose(jacobi(A, b, x0, max_iter=25), [7.1111, -3.2222])
+        trail = jacobi(A, b, x0, max_iter=25)
+        assert np.allclose(trail.result, [7.1111, -3.2222])
