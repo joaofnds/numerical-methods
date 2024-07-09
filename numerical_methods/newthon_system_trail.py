@@ -4,7 +4,7 @@ from matplotlib import cm
 from tabulate import tabulate
 
 
-class JacobianTrail:
+class NewthonSystemTrail:
     def __init__(self, f, j):
         self.f = f
         self.j = j
