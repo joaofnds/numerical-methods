@@ -6,6 +6,19 @@ from numerical_methods.lu_decomposition import lu_decomposition, solve_lu
 
 
 class TestLUDecomposition(unittest.TestCase):
+    def test_zero_division_error(self):
+        A1 = np.array(
+            [
+                [0, 3, 2],
+                [1, 4, 3],
+                [0, 2, 5],
+            ],
+            dtype=np.float64,
+        )
+
+        with self.assertRaises(ZeroDivisionError):
+            lu_decomposition(A1)
+
     def test_first_exercise(self):
         A = np.array(
             [

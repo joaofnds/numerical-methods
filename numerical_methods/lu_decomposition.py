@@ -9,6 +9,9 @@ def lu_decomposition(A: np.ndarray):
         U[k, k:] = A[k, k:] - L[k, :k] @ U[:k, k:]
 
         for i in range(k + 1, len(A)):
+            if U[k, k] == 0:
+                raise ZeroDivisionError()
+
             L[i, k] = (A[i, k] - L[i, :k] @ U[:k, k]) / U[k, k]
 
     return L, U
